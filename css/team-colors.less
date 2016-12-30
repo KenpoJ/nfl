@@ -1,0 +1,888 @@
+.angled-background(@primary, @secondary) {
+	background: @primary;
+	background: -moz-linear-gradient(45deg,  @primary 0%, @primary 66%, @secondary 67%, @secondary 100%);
+	background: -webkit-linear-gradient(45deg,  @primary 0%,@primary 66%,@secondary 67%,@secondary 100%);
+	background: linear-gradient(45deg,  @primary 0%,@primary 66%,@secondary 67%,@secondary 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@primary', endColorstr='@secondary',GradientType=1 );
+}
+
+/*----- TEAM COLORS -----*/
+// http://teamcolorcodes.com/nfl-team-color-codes/
+
+@ariPrimary: #9B2743;
+@ariSecondary: #000000;
+
+@atlPrimary: #BD0D18;
+@atlSecondary: #000000;
+
+@balPrimary: #280353;
+@balSecondary: #000000;
+@balTertiary: #D0B240;
+
+@bufPrimary: #00338D;
+@bufSecondary: #C60C30;
+
+@carPrimary: #0088CE;
+@carSecondary: #000000;
+@carTertiary: #A5ACAF;
+
+@chiPrimary: #03202F;
+@chiSecondary: #DD4814;
+
+@cinPrimary: #FB4F14;
+@cinSecondary: #000000;
+
+@clePrimary: #26201E;
+@cleSecondary: #FE3C00;
+
+@dalPrimary: #0D254C;
+@dalSecondary: #C5CED6;
+@dalTertiary: #EEEEEE;
+
+@denPrimary: #FB4F14;
+@denSecondary: #002244;
+
+@detPrimary: #006DB0;
+@detSecondary: #C5C7CF;
+@detTertiary: #000000;
+@detQuat: #EEEEEE;
+
+@gbPrimary: #203731;
+@gbSecondary: #FFB612;
+
+@houPrimary: #02253A;
+@houSecondary: #B31B34;
+
+@indPrimary: #003B7B;
+@indSecondary: #EEEEEE;
+
+@jacPrimary: #000000;
+@jacSecondary: #9F792C;
+@jacTertiary: #D7A22A;
+@jacQuat: #006778;
+
+@kcPrimary: #B20032;
+@kcSecondary: #F2C800;
+
+@miaPrimary: #008D97;
+@miaSecondary: #F5811F;
+
+@minPrimary: #3B0160;
+@minSecondary: #F0BF00;
+
+@nePrimary: #0D254C;
+@neSecondary: #C80815;
+@neTertiary: #D6D6D6;
+
+@noPrimary: #D2B887;
+@noSecondary: #D3A205;
+
+@nygPrimary: #192F6B;
+@nygSecondary: #CA001A;
+@nygTertiary: #A2AAAD;
+
+@nyjPrimary: #0C371D;
+@nyjSecondary: #EEEEEE;
+
+@oakPrimary: #000000;
+@oakSecondary: #C4C8CB;
+
+@phiPrimary: #003B48;
+@phiSecondary: #D3A205;
+@phiTertiary: #708090;
+@phiQuat: #C0C0C0;
+
+@pitPrimary: #FFB612;
+@pitSecondary: #000000;
+@pitTertiary: #EEEEEE;
+
+@sdPrimary: #0C2340;
+@sdSecondary: #FFB81C;
+@sdTertiary: #0072CE;
+
+@sfPrimary: #AF1E2C;
+@sfSecondary: #E6BE8A;
+
+@seaPrimary: #002244;
+@seaSecondary: #69BE28;
+@seaTertiary: #A5ACAF;
+
+@stlPrimary: #13264B;
+@stlSecondary: #C9AF74;
+
+@tbPrimary: #D60A0B;
+@tbSecondary: #D3A205;
+@tbTertiary: #89765F;
+
+@tenPrimary: #648FCC;
+@tenSecondary: #0D254C;
+
+@wasPrimary: #773141;
+@wasSecondary: #FFB612;
+@wasTertiary: #EEEEEE;
+
+
+.ARI {
+	position: relative;
+	color: #FFF;
+	.angled-background(@ariPrimary, @ariSecondary);
+}
+.ARI:before {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 100%;
+	opacity: .2;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: url('../img/logos/Arizona-Cardinals.png') no-repeat 140px -140px;
+}
+.ARI {
+	&.small:before {
+		opacity: .4;
+		background-size: 75%;
+		background-position: -40px -20px;
+	}
+}
+.ATL {
+	position: relative;
+	color: #FFF;
+	.angled-background(@atlPrimary, @atlSecondary);
+}
+.ATL:before {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 100%;
+	opacity: .2;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: url('../img/logos/Atlanta-Falcons.png') no-repeat 140px -140px;
+}
+.ATL {
+	&.small:before {
+		opacity: .4;
+		background-size: 100%;
+		background-position: -100px -50px;
+	}
+}
+.BAL {
+	position: relative;
+	color: #FFF;
+	.angled-background(@balPrimary, @balTertiary);
+}
+.BAL:before {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 100%;
+	opacity: .2;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: url('../img/logos/Baltimore-Ravens.png') no-repeat 280px -40px;
+}
+.BAL {
+	&.small:before {
+		opacity: .3;
+		background-size: 95%;
+		background-position: -80px -30px;
+	}
+}
+.BUF {
+	position: relative;
+	color: #FFF;
+	.angled-background(@bufSecondary, @bufPrimary);
+}
+.BUF:before {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 100%;
+	opacity: .2;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: url('../img/logos/Buffalo-Bills.png') no-repeat 350px -40px;
+	background-size: 50%;
+}
+.BUF {
+	&.small:before {
+		opacity: .8;
+		background-size: 70%;
+		background-position: -20px -20px;
+	}
+}
+.CAR {
+	position: relative;
+	color: #FFF;
+	.angled-background(@carPrimary, @carSecondary);
+}
+.CAR:before {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 100%;
+	opacity: .2;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: url('../img/logos/Carolina-Panthers.png') no-repeat 360px -10px;
+	background-size: 50%;
+}
+.CAR {
+	&.small:before {
+		opacity: .4;
+		background-size: 80%;
+		background-position: -50px 0px;
+	}
+}
+.CHI {
+	position: relative;
+	color: #FFF;
+	.angled-background(@chiPrimary, @chiSecondary);
+}
+.CHI:before {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 100%;
+	opacity: .2;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: url('../img/logos/Chicago-Bears.png') no-repeat 340px -10px;
+	background-size: 50%;
+}
+.CHI {
+	&.small:before {
+		opacity: .4;
+		background-size: 80%;
+		background-position: -50px -20px;
+	}
+}
+.CIN {
+	position: relative;
+	color: #FFF;
+	.angled-background(@cinPrimary, @cinSecondary);
+}
+.CIN:before {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 100%;
+	opacity: .2;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: url('../img/logos/Cincinnati-Bengals.png') no-repeat 420px -120px;
+	background-size: 45%;
+}
+.CIN {
+	&.small:before {
+		opacity: .4;
+		background-size: 60%;
+		background-position: -10px -40px;
+	}
+}
+.CLE {
+	position: relative;
+	color: #FFF;
+	.angled-background(@clePrimary, @cleSecondary);
+}
+.CLE:before {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 100%;
+	opacity: .2;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: url('../img/logos/Cleveland-Browns.png') no-repeat 420px -120px;
+	background-size: 45%;
+}
+.CLE {
+	&.small:before {
+		opacity: .5;
+		background-size: 80%;
+		background-position: -60px -60px;
+	}
+}
+.DAL {
+	position: relative;
+	color: #FFF;
+	.angled-background(@dalSecondary, @dalPrimary);
+}
+.DAL:before {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 100%;
+	opacity: .2;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: url('../img/logos/Dallas-Cowboys.png') no-repeat 400px -60px;
+	background-size: 45%;
+}
+.DAL {
+	&.small:before {
+		opacity: .4;
+		background-size: 80%;
+		background-position: -40px -60px;
+	}
+}
+.DEN {
+	position: relative;
+	color: #FFF;
+	.angled-background(@denPrimary, @denSecondary);
+}
+.DEN:before {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 100%;
+	opacity: .2;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: url('../img/logos/Denver-Broncos.png') no-repeat 330px -50px;
+	background-size: 55%;
+}
+.DEN {
+	&.small:before {
+		opacity: .4;
+		background-size: 85%;
+		background-position: -60px -20px;
+	}
+}
+.DET {
+	position: relative;
+	color: #FFF;
+	.angled-background(@detPrimary, @detSecondary);
+}
+.DET:before {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 100%;
+	opacity: .2;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: url('../img/logos/Detroit-Lions.png') no-repeat 330px -50px;
+	background-size: 55%;
+}
+.DET {
+	&.small:before {
+		opacity: .4;
+		background-size: 80%;
+		background-position: -50px -50px;
+	}
+}
+.GB {
+	position: relative;
+	color: #FFF;
+	.angled-background(@gbPrimary, @gbSecondary);
+}
+.GB:before {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 100%;
+	opacity: .2;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: url('../img/logos/Green-Bay-Packers.png') no-repeat 330px -50px;
+	background-size: 55%;
+}
+.GB {
+	&.small:before {
+		opacity: .4;
+		background-size: 80%;
+		background-position: -55px -15px;
+	}
+}
+.HOU {
+	position: relative;
+	color: #FFF;
+	.angled-background(@houPrimary, @houSecondary);
+}
+.HOU:before {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 100%;
+	opacity: .2;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: url('../img/logos/Houston-Texans.png') no-repeat 330px -100px;
+	background-size: 55%;
+}
+.HOU {
+	&.small:before {
+		opacity: .4;
+		background-size: 65%;
+		background-position: -40px -70px;
+	}
+}
+.IND {
+	position: relative;
+	color: #EEE;
+	.angled-background(@indPrimary, @indSecondary);
+}
+.IND:before {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 100%;
+	opacity: .2;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: url('../img/logos/Indianapolis-Colts.png') no-repeat 330px -100px;
+	background-size: 55%;
+}
+.IND {
+	&.small:before {
+		opacity: .4;
+		background-size: 75%;
+		background-position: -30px -20px;
+	}
+}
+.JAX {
+	position: relative;
+	color: #FFF;
+	.angled-background(@jacPrimary, @jacSecondary);
+}
+.JAX:before {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 100%;
+	opacity: .2;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: url('../img/logos/Jacksonville-Jaguars.png') no-repeat 330px -100px;
+	background-size: 55%;
+}
+.JAX {
+	&.small:before {
+		opacity: .5;
+		background-size: 75%;
+		background-position: -50px -50px;
+	}
+}
+.KC {
+	position: relative;
+	color: #FFF;
+	.angled-background(@kcPrimary, @kcSecondary);
+}
+.KC:before {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 100%;
+	opacity: .2;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: url('../img/logos/Kansas-City-Cheifs.png') no-repeat 330px -110px;
+	background-size: 55%;
+}
+.KC {
+	&.small:before {
+		opacity: .4;
+		background-size: 80%;
+		background-position: -40px -60px;
+	}
+}
+.MIA {
+	position: relative;
+	color: #FFF;
+	.angled-background(@miaPrimary, @miaSecondary);
+}
+.MIA:before {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 100%;
+	opacity: .2;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: url('../img/logos/Miami-Dolphins.png') no-repeat 360px -30px;
+	background-size: 45%;
+}
+.MIA {
+	&.small:before {
+		opacity: .5;
+		background-size: 80%;
+		background-position: -70px -20px;
+	}
+}
+.MIN {
+	position: relative;
+	color: #FFF;
+	.angled-background(@minPrimary, @minSecondary);
+}
+.MIN:before {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 100%;
+	opacity: .2;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: url('../img/logos/Minnesota-Vikings.png') no-repeat 420px -90px;
+	background-size: 35%;
+}
+.MIN {
+	&.small:before {
+		opacity: .4;
+		background-size: 75%;
+		background-position: -50px -100px;
+	}
+}
+.NE {
+	position: relative;
+	color: #FFF;
+	.angled-background(@nePrimary, @neSecondary);
+}
+.NE:before {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 100%;
+	opacity: .2;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: url('../img/logos/New-England-Patriots.png') no-repeat 250px -20px;
+	background-size: 65%;
+}
+.NE {
+	&.small:before {
+		opacity: .3;
+		background-size: 90%;
+		background-position: -110px -15px;
+	}
+}
+.NO {
+	position: relative;
+	color: #FFF;
+	.angled-background(@noPrimary, @noSecondary);
+}
+.NO:before {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 100%;
+	opacity: .2;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: url('../img/logos/New-Orleans-Saints.png') no-repeat 270px -120px;
+	background-size: 80%;
+}
+.NO {
+	&.small:before {
+		opacity: .3;
+		background-size: 110%;
+		background-position: -70px -50px;
+	}
+}
+.NYG {
+	position: relative;
+	color: #FFF;
+	.angled-background(@nygTertiary, @nygPrimary);
+}
+.NYG:before {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 100%;
+	opacity: .2;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: url('../img/logos/New-York-Giants.png') no-repeat 410px -60px;
+	background-size: 40%;
+}
+.NYG {
+	&.small:before {
+		opacity: .7;
+		background-size: 55%;
+		background-position: 0px -40px;
+	}
+}
+.NYJ {
+	position: relative;
+	color: #FFF;
+	.angled-background(@nyjPrimary, @nyjSecondary);
+}
+.NYJ:before {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 100%;
+	opacity: .2;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: url('../img/logos/New-York-Jets.png') no-repeat 410px -60px;
+	background-size: 40%;
+}
+.NYJ {
+	&.small:before {
+		opacity: .4;
+		background-size: 90%;
+		background-position: -80px -70px;
+	}
+}
+.OAK {
+	position: relative;
+	color: #FFF;
+	.angled-background(@oakPrimary, @oakSecondary);
+}
+.OAK:before {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 100%;
+	opacity: .2;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: url('../img/logos/Oakland-Raiders.png') no-repeat 410px -60px;
+	background-size: 40%;
+}
+.OAK {
+	&.small:before {
+		opacity: .4;
+		background-size: 70%;
+		background-position: -60px -40px;
+	}
+}
+.PHI {
+	position: relative;
+	color: #FFF;
+	.angled-background(@phiPrimary, @phiSecondary);
+}
+.PHI:before {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 100%;
+	opacity: .2;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: url('../img/logos/Philadelphia-Eagles.png') no-repeat 390px -100px;
+	background-size: 55%;
+}
+.PHI {
+	&.small:before {
+		opacity: .4;
+		background-size: 80%;
+		background-position: 0 -50px;
+	}
+}
+.PIT {
+	position: relative;
+	color: #FFF;
+	.angled-background(@pitPrimary, @pitSecondary);
+}
+.PIT:before {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 100%;
+	opacity: .2;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: url('../img/logos/Pittsburgh-Steelers.png') no-repeat 390px -50px;
+	background-size: 63%;
+}
+.PIT {
+	&.small:before {
+		opacity: .4;
+		background-size: 90%;
+		background-position: -80px -50px;
+	}
+}
+.SD {
+	position: relative;
+	color: #FFF;
+	.angled-background(@sdPrimary, @sdSecondary);
+}
+.SD:before {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 100%;
+	opacity: .2;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: url('../img/logos/San-Diego-Chargers.png') no-repeat 390px -50px;
+	background-size: 63%;
+}
+.SD {
+	&.small:before {
+		opacity: .5;
+		background-size: 80%;
+		background-position: -40px 0px;
+	}
+}
+.SF {
+	position: relative;
+	color: #FFF;
+	.angled-background(@sfPrimary, @sfSecondary);
+}
+.SF:before {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 100%;
+	opacity: .2;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: url('../img/logos/San-Francisco-49ers.png') no-repeat 370px -50px;
+	background-size: 58%;
+}
+.SF {
+	&.small:before {
+		opacity: .4;
+		background-size: 80%;
+		background-position: -60px -15px;
+	}
+}
+.SEA {
+	position: relative;
+	color: #FFF;
+	.angled-background(@seaPrimary, @seaSecondary);
+}
+.SEA:before {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 100%;
+	opacity: .2;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: url('../img/logos/Seattle-Seahawks.png') no-repeat 200px 0;
+}
+.SEA {
+	&.small:before {
+		opacity: .4;
+		background-size: 80%;
+		background-position: -50px -5px;
+	}
+}
+.STL {
+	position: relative;
+	color: #FFF;
+	.angled-background(@stlPrimary, @stlSecondary);
+}
+.STL:before {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 100%;
+	opacity: .2;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: url('../img/logos/St-Louis-Rams.png') no-repeat 300px -150px;
+	background-size: 58%;
+}
+.STL {
+	&.small:before {
+		opacity: .4;
+		background-size: 70%;
+		background-position: -70px -65px;
+	}
+}
+.TB {
+	position: relative;
+	color: #FFF;
+	.angled-background(@tbPrimary, @tbSecondary);
+}
+.TB:before {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 100%;
+	opacity: .2;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: url('../img/logos/Tamps-Bay-Buccaneers.png') no-repeat 330px -50px;
+	background-size: 58%;
+}
+.TB {
+	&.small:before {
+		opacity: .4;
+		background-size: 70%;
+		background-position: -40px -20px;
+	}
+}
+.TEN {
+	position: relative;
+	color: #FFF;
+	.angled-background(@tenPrimary, @tenSecondary);
+}
+.TEN:before {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 100%;
+	opacity: .2;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: url('../img/logos/Tennessee-Titans.png') no-repeat 330px -50px;
+	background-size: 58%;
+}
+.TEN {
+	&.small:before {
+		opacity: .3;
+		background-size: 75%;
+		background-position: -60px -30px;
+	}
+}
+.WAS {
+	position: relative;
+	color: #FFF;
+	.angled-background(@wasPrimary, @wasSecondary);
+}
+.WAS:before {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 100%;
+	opacity: .2;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: url('../img/logos/Washington-Redskins.png') no-repeat 330px -50px;
+	background-size: 58%;
+}
+.WAS {
+	&.small:before {
+		opacity: .4;
+		background-size: 80%;
+		background-position: -50px -30px;
+	}
+}

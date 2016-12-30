@@ -1,0 +1,53 @@
+{  
+   "scoreboard":{  
+      "lastUpdatedOn":"2016-07-11 9:12:34 PM",
+      "gameScore":[  
+         {  
+            "game":{  
+               "ID":"32567",
+               "date":"2015-10-04",
+               "time":"1:00PM",
+               "awayTeam":{  
+                  "ID":"53",
+                  "City":"New York",
+                  "Name":"Giants",
+                  "Abbreviation":"NYG"
+               },
+               "homeTeam":{  
+                  "ID":"48",
+                  "City":"Buffalo",
+                  "Name":"Bills",
+                  "Abbreviation":"BUF"
+               },
+               "location":"Ralph Wilson Stadium"
+            },
+            "isUnplayed":"false",
+            "isInProgress":"false",
+            "isCompleted":"true",
+            "awayScore":"24",
+            "homeScore":"10",
+            "quarterSummary":{  
+               "quarter":[  
+                  {  
+                     "@number":"1",
+                     "awayScore":"9",
+                     "homeScore":"3"
+                  },
+                  {  
+                     "@number":"2",
+                     "awayScore":"7",
+                     "homeScore":"0"
+                  },
+                  {  
+                     "@number":"3",
+                     "awayScore":"0",
+                     "homeScore":"0"
+                  },
+                  {  
+                     "@number":"4",
+                     "awayScore":"8",
+                     "homeScore":"7"
+                  }
+               ]
+            }
+         },

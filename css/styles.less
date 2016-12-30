@@ -1,0 +1,227 @@
+/*----- VARIABLES -----*/
+@largeHeading: 'Lalezar', cursive;
+@otherHeading: 'Contrail One', cursive;
+@bodyText: 'Roboto', sans-serif;
+@fontColor: #333;
+
+@blueAccent: #1E5799;
+
+
+/*----- MIXINS -----*/
+@import "less_mixins.less";
+
+
+/*----- FONTS -----*/
+h1, h2, h3, h4, h5, h6 {
+	font-family: @otherHeading
+}
+
+table {
+	font-size: 90%;
+}
+
+
+
+
+/*----- LAYOUT -----*/
+body {
+	font-size: 16px;
+	color: @fontColor;
+	background: @blueAccent;
+	background: -moz-linear-gradient(left,  @blueAccent 0%, #000000 25%, #000000 75%, @blueAccent 100%);
+	background: -webkit-linear-gradient(left,  @blueAccent 0%,#000000 25%,#000000 75%,@blueAccent 100%);
+	background: linear-gradient(to right,  @blueAccent 0%,#000000 25%,#000000 75%,@blueAccent 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@blueAccent', endColorstr='@blueAccent',GradientType=1 );
+}
+
+.main-content {
+	clear: both;
+	overflow: auto;
+	background: #FFF;
+}
+
+.flex-container {
+	display: flex;
+}
+
+.flex-container > div {
+}
+
+.flex-container div:not(:last-child) {
+	margin-right: 15px;
+}
+
+/*----- PLAYER LIST -----*/
+
+
+/*----- SCOREBOARD DETAILS -----*/
+.table-scores {
+	padding-left: 0;
+	padding-right: 0;
+	font-size: 90%;
+
+	li {
+		margin-bottom: 2rem;
+		transition: all .2s ease-out;
+
+		&:hover {
+			cursor: pointer;
+			.scale(1.05);
+		}
+	}
+	div {
+		padding: 1rem;
+
+		span {
+			margin-top: 10%;
+			.text-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
+			.translate(0, 0);
+		}
+	}
+	div:nth-child(1) {
+		.border-radiuses(5px, 0, 0, 5px);
+	}
+	div:nth-child(3) {
+		.border-radiuses(0, 5px, 5px, 0);
+	}
+	.score-home, .score-away {
+		font-size: 2rem;
+	}
+	.team-away, .score-home {
+		float: left;
+	}
+	.team-home, .score-away {
+		float: right;
+	}
+	.team-home, .team-away {
+		font-size: 2rem;
+	}
+	.team-home {
+		text-align: right;
+	}
+
+
+	&.table-scores-main {
+		margin-top: 5rem;
+
+		li {
+			border: 1px solid @blueAccent;
+			.border-radius(5px);
+		}
+		div {
+			span {
+				margin-top: 0;
+			}
+		}
+		.score-home, .score-away {
+			font-size: 5rem;
+		}
+	}
+}
+
+.modal-body {
+	overflow: auto;
+	justify-content: justify;
+
+	div {
+		text-align: center;
+	}
+}
+
+
+/*----- PLAYER DETAILS -----*/
+.player-detail {
+	margin-top: 3rem;
+	margin-bottom: 3rem;
+	padding: 0;
+	overflow: auto;
+	.border-radiuses(15px, 15px, 4px, 4px);
+	.box-shadow(0px 0px 12px 6px rgba(180,180,180,.3));
+}
+
+.player-banner {
+	padding: 15px;
+	overflow: auto;
+	.text-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
+
+	.player-name {
+		float: left;
+
+		h1 {
+			font-family: @largeHeading;
+		}
+		p {
+			margin: 0;
+			padding: 0;
+		}
+	}
+	.player-team {
+		float: right;
+
+		h2 {
+			font-family: @largeHeading;
+
+			small {
+				font-family: @otherHeading;
+				color: inherit;
+			}
+		}
+	}
+}
+
+.player-stats-container {
+	padding: 15px;
+	clear: both;
+
+	h3 {
+		clear: both;
+	}
+}
+
+
+/*----- HEADER -----*/
+header {
+	padding: 15px;
+	overflow: auto;
+	height: 250px;
+	text-align: right;
+	color: #FFF;
+	background: #000 url('../img/nfl-shield.jpg') no-repeat -10% 80%;
+	background-size: 60%;
+
+	h1 {
+		margin-bottom: 0;
+		font-family: @largeHeading;
+	}
+	nav {
+		float: right;
+		margin-top: 10px;
+	}
+}
+
+
+
+/*----- NAVIGATION -----*/
+
+
+
+/*----- FORM HELPER STYLES -----*/
+
+
+
+/*----- HELPER CLASSES ------*/
+.table-centered {
+	th, td {
+		text-align: center;
+	}
+}
+
+@import "team-colors.less";
+
+
+
+/*----- RESPONSIVE ADJUSTMENTS -----*/
+
+@media only screen and (max-width: 480px) {
+
+}

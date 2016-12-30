@@ -1,0 +1,126 @@
+<div class="col-md-8 col-md-offset-2" ng-controller="PlayerController">
+	<h2>Player Stats</h2>
+
+	<section class="search">
+		<form>
+			<div class="form-group col-md-6">
+				<label>Search by Name</label>
+				<input class="form-control" type="text" name="query" ng-model="query" min="1">
+			</div>
+			<!--
+			<div class="form-group col-md-6">
+				<label>Search by Position</label>
+				<select class="form-control" ng-model="position">
+					<option value="all" selected>All positions</option>
+					<optgroup label="Offense">
+						<option value="QB">QB</option>
+						<option value="HB">HB</option>
+						<option value="FB">FB</option>
+						<option value="WR">WR</option>
+						<option value="TE">TE</option>
+						<option value="LT">LT</option>
+						<option value="LG">LG</option>
+						<option value="C">C</option>
+						<option value="RG">RG</option>
+						<option value="RT">RT</option>
+					</optgroup>
+					<optgroup label="Defense">
+						<option value="RE">RE</option>
+						<option value="LE">LE</option>
+						<option value="DT">DT</option>
+						<option value="OLB">OLB</option>
+						<option value="MLB">MLB</option>
+						<option value="ILB">ILB</option>
+						<option value="LB">LB</option>
+						<option value="CB">CB</option>
+						<option value="SS">SS</option>
+						<option value="FS">FS</option>
+						<option value="K">K</option>
+						<option value="P">P</option>
+					</optgroup>
+				</select>
+			</div>
+			-->
+			<div class="form-group col-md-6">
+				<label>Search by Team</label>
+				<select class="form-control" ng-model="team" ng-change="sort(team)">
+					<option value="all" selected>All Teams</option>
+					<optgroup label="AFC East">
+						<option value="NE">New England Patriots</option>
+						<option value="BUF">Buffalo Bills</option>
+						<option value="NYJ">New York Jets</option>
+						<option value="MIA">Miami Dolphins</option>
+					</optgroup>
+					<optgroup label="AFC North">
+						<option value="PIT">Pittsburgh Steelers</option>
+						<option value="BAL">Baltimore Ravens</option>
+						<option value="CIN">Cinncinati Bengals</option>
+						<option value="CLE">Cleveland Browns</option>
+					</optgroup>
+					<optgroup label="AFC South">
+						<option value="HOU">Houston Texans</option>
+						<option value="TEN">Tennessee Titans</option>
+						<option value="IND">Indianapolis Colts</option>
+						<option value="JAC">Jacksonville Jaguars</option>
+					</optgroup>
+					<optgroup label="AFC West">
+						<option value="OAK">Oakland Raiders</option>
+						<option value="DEN">Denver Broncos</option>
+						<option value="KC">Kansas City Chiefs</option>
+						<option value="SD">San Diego Chargers</option>
+					</optgroup>
+					<optgroup label="NFC East">
+						<option value="DAL">Dallas Cowboys</option>
+						<option value="PHI">Philidelphia Eagles</option>
+						<option value="WAS">Washington Redskins</option>
+						<option value="NYG">New York Giants</option>
+					</optgroup>
+					<optgroup label="NFC North">
+						<option value="MIN">Minnesotta Vikings</option>
+						<option value="GB">Green Bay Packers</option>
+						<option value="DET">Detroit Lions</option>
+						<option value="CHI">Chicago Bears</option>
+					</optgroup>
+					<optgroup label="NFC South">
+						<option value="ATL">Atlanta Falcons</option>
+						<option value="TB">Tampa Bay Buccaneers</option>
+						<option value="NO">New Orleans Saints</option>
+						<option value="CAR">Carolina Panthers</option>
+					</optgroup>
+					<optgroup label="NFC West">
+						<option value="SEA">Seattle Seahawks</option>
+						<option value="STL">St Louis Rams</option>
+						<option value="ARI">Arizona Cardinals</option>
+						<option value="SF">San Fransisco 49ers</option>
+					</optgroup>
+				</select>
+			</div>
+
+		</form>
+
+	</section>
+
+	<!--table ng-table="vm.tableParams" class="table table-striped"-->
+	<dir-pagination-controls></dir-pagination-controls>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Name <span class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+				<th>Position <span class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+				<th>Number <span class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+				<th>Team <span class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+			</tr>
+		</thead>
+		<tbody>
+			<!--tr ng-repeat="player in playerList | filter: query || position || team" dir-paginate="player in playerList | itemsPerPage: 100"-->
+			<tr dir-paginate="player in playerList | filter: query || team | itemsPerPage: 50">
+				<!--td>{{ $index + 1 }}</td-->
+				<td><a href="#/playerdetail/{{ player.player.ID }}"><span ng-bind="player.player.FirstName"></span> <span ng-bind="player.player.LastName"></span></a></td>
+				<td>{{ player.player.Position }}</td>
+				<td>#{{ player.player.JerseyNumber }}</td>
+				<td>{{ player.team.Abbreviation }}</td>
+			</tr>
+		</tbody>
+	</table>
+	<dir-pagination-controls></dir-pagination-controls>
+</div>

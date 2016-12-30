@@ -1,0 +1,170 @@
+<div class="flex-container">
+
+	<div class="col-sm-8 col-sm-offset-2">
+
+		<h2>Regular Season</h2>
+
+		<form>
+			<select id="week-selector" name="week-selector" ng-model="date" ng-change="loadJson(date)">
+				<optgroup label="Week 1">
+					<option value="20150910" selected>1 - Thursday</option>
+					<option value="20150913">1 - Sunday</option>
+					<option value="20150914">1 - Monday</option>
+				</optgroup>
+				<optgroup label="Week 2">
+					<option value="20150917">2 - Thursday</option>
+					<option value="20150920">2 - Sunday</option>
+					<option value="20150921">2 - Monday</option>
+				</optgroup>
+				<optgroup label="Week 3">
+					<option value="20150924">3 - Thursday</option>
+					<option value="20150927">3 - Sunday</option>
+					<option value="20150928">3 - Monday</option>
+				</optgroup>
+				<optgroup label="Week 4">
+					<option value="20151001">4 - Thursday</option>
+					<option value="20151004">4 - Sunday</option>
+					<option value="20151005">4 - Monday</option>
+				</optgroup>
+				<optgroup label="Week 5">
+					<option value="20151008">5 - Thursday</option>
+					<option value="20151011">5 - Sunday</option>
+					<option value="20151012">5 - Monday</option>
+				</optgroup>
+				<optgroup label="Week 6">
+					<option value="20151015">6 - Thursday</option>
+					<option value="20151018">6 - Sunday</option>
+					<option value="20151019">6 - Monday</option>
+				</optgroup>
+				<optgroup label="Week 7">
+					<option value="20151022">7 - Thursday</option>
+					<option value="20151025">7 - Sunday</option>
+					<option value="20151026">7 - Monday</option>
+				</optgroup>
+				<optgroup label="Week 8">
+					<option value="20151029">8 - Thursday</option>
+					<option value="20151101">8 - Sunday</option>
+					<option value="20151102">8 - Monday</option>
+				</optgroup>
+				<optgroup label="Week 9">
+					<option value="20151105">9 - Thursday</option>
+					<option value="20151108">9 - Sunday</option>
+					<option value="20151109">9 - Monday</option>
+				</optgroup>
+				<optgroup label="Week 10">
+					<option value="20151112">10 - Thursday</option>
+					<option value="20151115">10 - Sunday</option>
+					<option value="20151116">10 - Monday</option>
+				</optgroup>
+				<optgroup label="Week 11">
+					<option value="20151119">11 - Thursday</option>
+					<option value="20151122">11 - Sunday</option>
+					<option value="20151123">11 - Monday</option>
+				</optgroup>
+				<optgroup label="Week 12">
+					<option value="20151126">12 - Thursday</option>
+					<option value="20151129">12 - Sunday</option>
+					<option value="20151130">12 - Monday</option>
+				</optgroup>
+				<optgroup label="Week 13">
+					<option value="20151203">13 - Thursday</option>
+					<option value="20151206">13 - Sunday</option>
+					<option value="20151207">13 - Monday</option>
+				</optgroup>
+				<optgroup label="Week 14">
+					<option value="20151210">14 - Thursday</option>
+					<option value="20151213">14 - Sunday</option>
+					<option value="20151214">14 - Monday</option>
+				</optgroup>
+				<optgroup label="Week 15">
+					<option value="20151217">15 - Thursday</option>
+					<option value="20151220">15 - Sunday</option>
+					<option value="20151221">15 - Monday</option>
+				</optgroup>
+				<optgroup label="Week 16">
+					<option value="20151224">16 - Thursday</option>
+					<option value="20151226">16 - Saturday</option>
+					<option value="20151227">16 - Sunday</option>
+					<option value="20151228">16 - Monday</option>
+				</optgroup>
+				<optgroup label="Week 17">
+					<option value="20160103">17 - Sunday</option>
+				</optgroup>
+			</select>
+		</form>
+
+		<ul class="table-scores table-scores-main col-sm-12">
+			<li ng-repeat="score in scores" class="flex-container" ng-click="modalCtrl();" data-toggle="modal" data-target="#game-modal">
+				<div class="col-sm-5 {{ score.game.awayTeam.Abbreviation }} small">
+					<span class="team-away">{{ score.game.awayTeam.City }}<br>{{ score.game.awayTeam.Name }}</span>
+					<span class="score-away">{{ score.awayScore }}</span>
+				</div>
+				<div class="col-sm-2 text-center">
+					vs<br><small>{{ formattedDate }}</small>
+				</div>
+				<div class="col-sm-5 {{ score.game.homeTeam.Abbreviation }} small">
+					<span class="team-home">{{ score.game.homeTeam.City }}<br>{{ score.game.homeTeam.Name }}</span>
+					<span class="score-home">{{ score.homeScore }}</span>
+				</div>
+			</li>
+		</ul>
+
+	</div>
+
+	<div id="game-modal" class="modal fade" ng-controller="GamesController as $ctrl">
+		<script type="text/ng-template" id="myModalContent">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+						<h4>Modal Title</h4>
+					</div>
+					<div class="modal-body flex-container">
+						<div class="col-sm-3">
+							<h1>{{ score.game.awayTeam.City }}<br>{{ score.game.awayTeam.Name }}</h1>
+							<p>88</p>
+						</div>
+						<div class="col-sm-5">
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th>1</th>
+										<th>1</th>
+										<th>1</th>
+										<th>1</th>
+										<th>OT</th>
+										<th>Final</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="col-sm-3">
+							<h1>{{ score.game.homeTeam.City }}<br>{{ score.game.homeTeam.Name }}</h1>
+							<p>88</p>
+						</div>
+					</div>
+					<div class="modal-footer"></div>
+				</div>
+			</div>
+		</script>script
+	</div>
+
+</div>

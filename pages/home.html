@@ -1,0 +1,73 @@
+<div class="flex-container" ng-controller="HomeController">
+
+	<div class="col-md-4">
+		<h2>Players</h2>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Position</th>
+					<th>Number</th>
+					<th>Team</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="player in players | limitTo: 10">
+					<td><a href="#/playerdetail/{{ player.player.ID }}">{{ player.player.FirstName }} {{ player.player.LastName }}</a></td>
+					<td>{{ player.player.Position }}</td>
+					<td>#{{ player.player.JerseyNumber }}</td>
+					<td>{{ player.team.Abbreviation }}</td>
+				</tr>
+				<tr>
+					<td colspan="4"><a class="btn btn-default" href="#/players">See all players</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="col-md-4">
+		<h2>Schedule</h2>
+
+		<ul class="table-scores col-sm-12">
+			<li ng-repeat="score in scores | limitTo: 6" class="flex-container">
+				<div class="col-sm-4 {{ score.game.awayTeam.Abbreviation }}">
+					<span class="team-away">{{ score.game.awayTeam.Abbreviation }}</span>
+					<span class="score-away">{{ score.awayScore }}</span>
+				</div>
+				<div class="col-sm-3 text-center">
+					vs<br><small>{{ date }}</small>
+				</div>
+				<div class="col-sm-4 {{ score.game.homeTeam.Abbreviation }}">
+					<span class="team-home">{{ score.game.homeTeam.Abbreviation }}</span>
+					<span class="score-home">{{ score.homeScore }}</span>
+				</div>
+			</li>
+		</ul>
+		<a class="btn btn-default" href="#/games">See all games</a>
+
+	</div>
+
+	<div class="col-md-4">
+		<h2>Standings</h2>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Team</th>
+					<th>W</th>
+					<th>L</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="team in standings | limitTo: 10">
+					<td>{{ team.team.City }} {{ team.team.Name }}</td>
+					<td>{{ team.stats.Wins["#text"] }}</td>
+					<td>{{ team.stats.Losses["#text"] }}</td>
+				</tr>
+				<tr>
+					<td colspan="3"><a class="btn btn-default" href="#/standings">See all standings</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</div>
