@@ -62,52 +62,6 @@ nflControllers.controller('PlayerDetailController', [ '$scope', '$http', '$route
 nflControllers.controller('GamesController', [ '$scope', '$http', function($scope, $http, $uibmodal) {
 	$scope.date = '20150910';
 
-	$scope.modalCtrl = function($uibmodal, $log, $document) {
-		console.log($uibmodal, $log, $document);
-		var $ctrl = this;
-		$ctrl.items = ['item1', 'item2', 'item3'];
-
-		$ctrl.open = function(size, parentSelector) {
-			var parentElem = parentSelector ? angular.element($document[0].querySelector('#game-modal ' + parentSelector)) : undefined;
-			var modalInstance = $uibModal.open({
-				templateUrl: 'myModalContent.html',
-				controller: 'modalInstanceController',
-				appendTo: parentElem,
-				resolve: {
-					items: function() {
-						return $ctrl.items;
-					}
-				}
-			});
-		}
-
-		$ctrl.openComponentModal = function() {
-			var modalInstance = $uibmodal.open({
-				component: 'modalComponent',
-				resolve: {
-					items: function() {
-						return $ctrl.items;
-					}
-				}
-			})
-		}
-	}
-
-
-/*
-	var ModalDemoCtrl = function ($scope, $modal, $log) {
-
-		var modalInstance = $modal.open({
-			templateUrl: 'pages/gameInfoModal.html',
-			controller: ModalInstanceCtrl,
-			resolve: {
-				test: function () {
-					return 'test variable';
-				}
-			}
-		});
-	};
-*/
 	$scope.loadJson = function(date) {
 		$http.get('js/json/scoreboard/' + date + '.json').then(function(response) {
 			$scope.scores = response.data.scoreboard.gameScore;
@@ -126,22 +80,6 @@ nflControllers.controller('GamesController', [ '$scope', '$http', function($scop
 	$scope.loadJson($scope.date);
 
 }]);
-
-nflControllers.controller('ModalInstanceCtrl', function ($uibModalInstance, items) {
-	var $ctrl = this;
-		$ctrl.items = items;
-		$ctrl.selected = {
-		item: $ctrl.items[0]
-	};
-
-	$ctrl.ok = function () {
-		$uibModalInstance.close($ctrl.selected.item);
-	};
-
-	$ctrl.cancel = function () {
-		$uibModalInstance.dismiss('cancel');
-	};
-});
 
 nflControllers.controller('StandingsController', ['$scope', '$http', function($scope, $http) {
 	$scope.parseInt = parseInt;

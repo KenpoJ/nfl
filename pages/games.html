@@ -1,6 +1,55 @@
 <div class="flex-container">
 
-	<div class="col-sm-8 col-sm-offset-2">
+	<div class="col-sm-8 col-sm-offset-2" ng-controller="NflGameModalCtrl as $ctrl">
+		<script type="text/ng-template" id="gameModalContent.html">
+			<div class="modal-header">
+				<!--button type="button" class="close" data-dismiss="modal"><span>&times;</span></button-->
+				<h4>Modal Title</h4>
+			</div>
+			<div class="modal-body flex-container">
+				<div class="col-sm-3">
+					<h1>{{ score.game.awayTeam.City }}<br>{{ score.game.awayTeam.Name }}</h1>
+					<p>{{ score.awayScore }}</p>
+				</div>
+				<div class="col-sm-5">
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+								<th>1</th>
+								<th>2</th>
+								<th>3</th>
+								<th>4</th>
+								<th>OT</th>
+								<th>Final</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>{{ score.quarterSummary.quarter[0].awayScore || '-' }}</td>
+								<td>{{ score.quarterSummary.quarter[1].awayScore || '-' }}</td>
+								<td>{{ score.quarterSummary.quarter[2].awayScore || '-' }}</td>
+								<td>{{ score.quarterSummary.quarter[3].awayScore || '-' }}</td>
+								<td>{{ score.quarterSummary.quarter[4].awayScore || '-' }}</td>
+								<td>{{ score.awayScore || '-' }}</td>
+							</tr>
+							<tr>
+								<td>{{ score.quarterSummary.quarter[0].homeScore || '-' }}</td>
+								<td>{{ score.quarterSummary.quarter[1].homeScore || '-' }}</td>
+								<td>{{ score.quarterSummary.quarter[2].homeScore || '-' }}</td>
+								<td>{{ score.quarterSummary.quarter[3].homeScore || '-' }}</td>
+								<td>{{ score.quarterSummary.quarter[4].homeScore || '-' }}</td>
+								<td>{{ score.homeScore || '-' }}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="col-sm-3">
+					<h1>{{ score.game.homeTeam.City }}<br>{{ score.game.homeTeam.Name }}</h1>
+					<p>{{ score.homeScore }}</p>
+				</div>
+			</div>
+			<div class="modal-footer"></div>
+		</script>
 
 		<h2>Regular Season</h2>
 
@@ -94,7 +143,7 @@
 		</form>
 
 		<ul class="table-scores table-scores-main col-sm-12">
-			<li ng-repeat="score in scores" class="flex-container" ng-click="modalCtrl();" data-toggle="modal" data-target="#game-modal">
+			<li ng-repeat="score in scores" class="flex-container" ng-click="$ctrl.open();">
 				<div class="col-sm-5 {{ score.game.awayTeam.Abbreviation }} small">
 					<span class="team-away">{{ score.game.awayTeam.City }}<br>{{ score.game.awayTeam.Name }}</span>
 					<span class="score-away">{{ score.awayScore }}</span>
@@ -109,62 +158,6 @@
 			</li>
 		</ul>
 
-	</div>
-
-	<div id="game-modal" class="modal fade" ng-controller="GamesController as $ctrl">
-		<script type="text/ng-template" id="myModalContent">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
-						<h4>Modal Title</h4>
-					</div>
-					<div class="modal-body flex-container">
-						<div class="col-sm-3">
-							<h1>{{ score.game.awayTeam.City }}<br>{{ score.game.awayTeam.Name }}</h1>
-							<p>88</p>
-						</div>
-						<div class="col-sm-5">
-							<table class="table table-bordered">
-								<thead>
-									<tr>
-										<th>1</th>
-										<th>1</th>
-										<th>1</th>
-										<th>1</th>
-										<th>OT</th>
-										<th>Final</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-									</tr>
-									<tr>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-						<div class="col-sm-3">
-							<h1>{{ score.game.homeTeam.City }}<br>{{ score.game.homeTeam.Name }}</h1>
-							<p>88</p>
-						</div>
-					</div>
-					<div class="modal-footer"></div>
-				</div>
-			</div>
-		</script>script
 	</div>
 
 </div>

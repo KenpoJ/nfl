@@ -1,10 +1,10 @@
 var nfl = angular.module('nfl', [
 	'ngRoute',
 	'nflControllers',
-	'ngOrderObjectBy',
 	'angularUtils.directives.dirPagination',
-	'ui.bootstrap'
-	//'Player'
+	'ui.bootstrap',
+	'PlayerService'
+	//'ngOrderObjectBy',
 	//'ngResource',
 	//'ngTable'
 ]);
@@ -36,4 +36,12 @@ nfl.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 	});
 	$locationProvider.html5Mode('false');
 }]);
+
+nfl.filter('playerFilter', function() {
+	return function(filterBy) {
+		var out = filterBy;
+		console.log(out)
+		return out;
+	}
+});
 
