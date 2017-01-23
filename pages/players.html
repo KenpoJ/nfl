@@ -4,10 +4,11 @@
 	<section class="search">
 		<form>
 			<div class="form-group col-md-6">
-				<label>Search Term</label>
+				<label>Search by Name</label>
 				<input class="form-control" type="text" name="query" ng-model="query" min="1">
 			</div>
 			<div class="form-group col-md-6">
+			<!--
 				<h4>Filter by:</h4>
 				<div class="checkbox">
 					<label><input type="checkbox" value="name"> Name</label>
@@ -18,6 +19,7 @@
 				<div class="checkbox">
 					<label><input type="checkbox" value="position"> Position</label>
 				</div>
+			-->
 			</div>
 			<!--
 			<div class="form-group col-md-6">
@@ -118,6 +120,7 @@
 	<table class="table table-striped">
 		<thead>
 			<tr>
+				<!--th>Index</th-->
 				<th>Name <span class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
 				<th>Position <span class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
 				<th>Number <span class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
@@ -126,7 +129,7 @@
 		</thead>
 		<tbody>
 			<!--tr ng-repeat="player in playerList | filter: query || position || team" dir-paginate="player in playerList | itemsPerPage: 100"-->
-			<tr dir-paginate="player in playerList | filter: query | filter: player | filter: team | itemsPerPage: 50">
+			<tr dir-paginate="player in players | filter: query | itemsPerPage: 50">
 				<!--td>{{ $index + 1 }}</td-->
 				<td><a href="#/playerdetail/{{ player.player.ID }}"><span ng-bind="player.player.FirstName"></span> <span ng-bind="player.player.LastName"></span></a></td>
 				<td>{{ player.player.Position }}</td>

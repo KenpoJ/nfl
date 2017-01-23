@@ -1,42 +1,38 @@
 var nflControllers = angular.module('nflControllers', []);
 
 
-nflControllers.controller('HomeController', function($scope, $http) {
-	$scope.msg = "home controller"
+nflControllers.controller('HomeController', function HomeController($scope, $http, PlayerService, ScoreboardService, StandingsService) {
+	$scope.msg = "home controller";
 
-	$http.get('js/json/players.json').then(function(response) {
-		$scope.players = response.data.cumulativeplayerstats.playerstatsentry;
-		//console.log('$scope.players');
+	PlayerService.playerList(function(PlayerService) {
+		$scope.players = PlayerService.cumulativeplayerstats.playerstatsentry;
 	});
 
-	$http.get('js/json/scoreboard/scoreboard.json').then(function(response) {
-		$scope.scores = response.data.scoreboard.gameScore;
-		$scope.date = $scope.scores[0].game.date;
-		//console.log($scope.scores[0].game.date);
+	ScoreboardService.scoreboard(function(ScoreboardService) {
+		$scope.scores = ScoreboardService.scoreboard.gameScore;
 	});
 
-	$http.get('js/json/standings.json').then(function(response) {
-		$scope.standings = response.data.overallteamstandings.teamstandingsentry;
-		//console.log($scope.standings);
+	StandingsService.standings(function(StandingsService) {
+		$scope.standings = StandingsService.overallteamstandings.teamstandingsentry;
 	});
 
 });
 
 
-nflControllers.controller('PlayerController', [ '$scope', '$http', function($scope, $http) {
+nflControllers.controller('PlayerController', function($scope, $http, PlayerService) {
 	$scope.sortBy = 'LastName';
 
-	$scope.sort = function(key) {
-		$scope.sortBy = key;
-		console.log($scope.sortBy)
-	}
-
-	$http.get('js/json/players.json').then(function(response) {
-		$scope.playerList = response.data.cumulativeplayerstats.playerstatsentry;
+	PlayerService.playerList(function(PlayerService) {
+		$scope.players = PlayerService.cumulativeplayerstats.playerstatsentry;
 		//$scope.tableParams = new NgTableParams({}, { dataset: response });
 	});
 
-}]);
+	$scope.sort = function(key) {
+		$scope.sortBy = key;
+		//console.log($scope.sortBy)
+	}
+
+});
 
 
 nflControllers.controller('PlayerDetailController', [ '$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
